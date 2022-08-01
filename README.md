@@ -48,5 +48,29 @@ I think this was an attempt to make it run as a Windows GUI program.
 
 ### folder MFCNN
 
-I think this might have been an adaptation for open frameworks. Not sure about that.
+Not sure about this folder.
 
+### folder of_v0.11.2_vs2017_release
+
+This folder contains an openframeworks project for Windows Visual Studio 2022. Put the project in the apps folder of openframeworks.
+
+The training file is hard-coded in the file testApp.cpp at line 21
+
+```c
+  const char * training_file = "C:\\PVDDATA\\of_v0.11.2_vs2017_release\\apps\\BP\\src\\XOR.DAT";
+```
+
+Change this so it points to a correct folder at your machine.
+
+The NN config is in the file bp.h at lines 14-17.
+
+```c
+#define MAXINPUT		2
+#define MAXHIDDEN		2
+#define MAXOUTPUT		1
+#define MAXTRAININGSAMPLES	500
+```
+
+Change the number of nodes in the hidden layer as convenient. The default 2 is a small brain. But it shows what the impact is of having to generalize with minimal variables. Playing with this value for a given training set e.g 2,4,8... it instructive.
+
+There are some screenshots in the 'screenshots' folder for the XOR training with hidden 2,4 and 8 layers.
