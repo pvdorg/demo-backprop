@@ -1,0 +1,53 @@
+/* ----------------------
+   WNN.RC resource script
+   ---------------------- */
+   
+#include <windows.h>
+#include <afxres.h>   
+#include "wnnmenu.h"
+
+AFX_IDI_STD_FRAME   ICON    wnn.ico
+
+WnnMenu MENU
+  {
+  POPUP "&File"
+    {
+    MENUITEM "&New",            WNNM_NEW
+    MENUITEM "&Open...",        WNNM_OPEN
+    MENUITEM "&Save",           WNNM_SAVE
+    MENUITEM "Save &As...",     WNNM_SAVEAS
+    MENUITEM SEPARATOR
+    MENUITEM "E&xit",           WNNM_EXIT
+    }
+  POPUP "&Edit"
+    {
+    MENUITEM "&Undo",           WNNM_UNDO
+    MENUITEM SEPARATOR
+    MENUITEM "Cu&t",            WNNM_CUT
+    MENUITEM "&Copy",           WNNM_COPY
+    MENUITEM "&Paste",          WNNM_PASTE
+    MENUITEM "De&lete",         WNNM_DEL
+    }
+  POPUP "&Command"
+    {
+    MENUITEM "&Weights ...",        WNNM_WEIGHTS
+    MENUITEM "&Step",               WNNM_STEP
+    MENUITEM "&Cycle",              WNNM_CYCLE
+    MENUITEM "&Trainingset ...",    WNNM_TRAININGSET
+    MENUITEM "&Environment ...",    WNNM_ENVIRONMENT
+    MENUITEM "&Variables ...",      WNNM_VARIABLES
+    MENUITEM "&Graphics ...",       WNNM_GRAPHICS
+    }
+  POPUP "&Help"
+    {
+    MENUITEM "&About Wnn ...\tF1", WNNM_ABOUT
+    }
+  }
+
+WnnAccelTable ACCELERATORS
+{
+  VK_F1,    WNNM_ABOUT, VIRTKEY
+}
+
+rcinclude wnn.dlg
+

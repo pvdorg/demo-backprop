@@ -1,0 +1,39 @@
+# Makefile : Builds the wnn application
+#
+# Usage:     NMAKE option (build wnn)
+#    or:     NMAKE clean  (erase all compiled files)
+#
+# option:    DEBUG=[0|1]  (DEBUG not defined is equivalent to DEBUG=0)
+
+CPPFLAGS=  /DWINVER=0x0300 /AL /W3 /Zp /GA /GEs /G2
+LINKFLAGS=/NOD /ONERROR:NOEXE
+
+!if "$(DEBUG)"=="1"
+CPPFLAGS=/D_DEBUG $(CPPFLAGS) /Od /Zi /f
+LINKFLAGS=$(LINKFLAGS) /COD
+LIBS=lafxcwd libw llibcew
+!else
+CPPFLAGS=$(CPPFLAGS) /Oselg /Gs
+LINKFLAGS=$(LINKFLAGS)  
+LIBS=lafxcw libw llibcew
+!endif
+
+OFILES=wnntop.obj bpmb2-nn.obj
+
+wnn.exe:     $(OFILES) wnn.obj wnn.def wnn.res
+	link $(LINKFLAGS) wnn $(OFILES), wnn, NUL, $(LIBS),wnn.def;
+	rc -30 /t wnn.res
+
+
+wnn.res:  wnnmenu.h wnn.ico wnn.dlg
+
+wnn.obj:        wnn.h wnnmenu.h
+wnntop.obj:     wnn.h bpmb2-nn.h
+bpmb2-nn.obj:   bpmb2-nn.h
+
+clean:
+	-erase wnn.exe
+	-erase wnn.res
+	-erase wnn.obj
+	-erase wnntop.obj
+	-erase bpmb2-nn.obj

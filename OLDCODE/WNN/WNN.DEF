@@ -1,0 +1,13 @@
+;-------------------------------------
+; WNN.DEF module definition file
+;-------------------------------------
+
+NAME           WNN
+
+DESCRIPTION    'Windows NN Learning Environment (c) Peter Van Damme, 1993'
+EXETYPE        WINDOWS
+STUB           'WINSTUB.EXE'
+CODE           PRELOAD FIXED DISCARDABLE
+DATA           PRELOAD FIXED MULTIPLE
+HEAPSIZE       1024
+STACKSIZE      8192

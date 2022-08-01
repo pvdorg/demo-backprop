@@ -1,0 +1,15 @@
+; wnn.def : Declares the module parameters for the application.
+;
+
+NAME         Wnn
+DESCRIPTION  'Windows Neural Networks Learning Environment'
+
+EXETYPE      WINDOWS
+STUB         'WINSTUB.EXE'
+
+CODE         PRELOAD MOVEABLE DISCARDABLE
+DATA         PRELOAD MOVEABLE MULTIPLE
+
+HEAPSIZE     8192
+STACKSIZE    8192
+
